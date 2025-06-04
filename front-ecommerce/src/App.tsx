@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import './App.css'
 import  {useGetProducts} from "./assets/api/get-products";
 
@@ -11,12 +11,22 @@ function App() {
       <div>
         {
           products?.map((product, index) => (
+            // otro mapeo
             <div key={index}>
               <h2>{product.name}</h2>
               <img src={product.image} alt={product.name}/>
               <p>{product.price}</p>
-              <p>{product.marca}</p>
-
+              <ul>
+                {
+                  product.products.map((product, index) => (
+                    <li key={index}>
+                      <h3>{product.name}</h3>
+                      <img src={product.image} alt={product.name}/>
+                      <p>{product.price}</p>
+                    </li>
+                  ))
+                }
+              </ul>
             </div>
           ) )
         }

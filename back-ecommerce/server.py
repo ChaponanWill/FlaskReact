@@ -7,13 +7,27 @@ cors = CORS(app, origins='*')
 @app.route('/api/products', methods=['GET'])
 def products():
     return jsonify({
-        'products': [
+        'marcas':[
             {
-                'id':1,
-                'name': 'iPhone 11 Pro',
-                'price': 999.99,
+                'id': 1,
+                'name': 'Apple',
                 'image': 'https://i.blogs.es/187a45/iphone-11-pro-02/840_560.jpg',
-                'marca': 'Apple',
+                'products': [
+                    {
+                        'id':1,
+                        'name': 'iPhone 11 Pro',
+                        'price': 999.99,
+                        'image': 'https://i.blogs.es/187a45/iphone-11-pro-02/840_560.jpg',
+                        'marca': 'Apple',
+                    },
+                    {
+                        'id':2,
+                        'name': 'iPhone 12 Pro',
+                        'price': 999.99,
+                        'image': 'https://i.blogs.es/187a45/iphone-11-pro-02/840_560.jpg',
+                        'marca': 'Apple',
+                    }
+                ]
             }
         ]
     })
